@@ -1,8 +1,24 @@
+//VERSION=2
+
 function setup(ds) {
-    setInputComponents([ds.B01, ds.B02, ds.B03, ds.B04, ds.B05, ds.B06, ds.B07, ds.B08, ds.B8A, ds.B11, ds.B12,
-            ds.AOT, ds.CLD, ds.SNW, ds.SCL, ds.viewZenithMean, ds.viewAzimuthMean, ds.sunZenithAngles, ds.sunAzimuthAngles]);
-    setOutputComponentCount(3);
+    return {
+        components: [ds.B01, ds.B02, ds.B03, ds.B04, ds.B05, ds.B06, ds.B07, ds.B08, ds.B8A, ds.B11, ds.B12,
+            ds.AOT, ds.CLD, ds.SNW, ds.SCL, ds.viewZenithMean, ds.viewAzimuthMean, ds.sunZenithAngles, ds.sunAzimuthAngles],
+        output: [
+            {
+                id: "default",
+                sampleType: SampleType.AUTO,
+                componentCount: 3
+            }
+        ],
+        temporal: true
+    }
 }
+//function setup(ds) {
+//    setInputComponents([ds.B01, ds.B02, ds.B03, ds.B04, ds.B05, ds.B06, ds.B07, ds.B08, ds.B8A, ds.B11, ds.B12,
+//            ds.AOT, ds.CLD, ds.SNW, ds.SCL, ds.viewZenithMean, ds.viewAzimuthMean, ds.sunZenithAngles, ds.sunAzimuthAngles]);
+//    setOutputComponentCount(3);
+//}
 
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
@@ -37,7 +53,7 @@ function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
     var best = selectRepresentativeSample(filteredSamples);
     if (best === undefined) {
-        return [0, 0, 0];
+        return {default: [0, 0, 0]};
     } else {
         var bestSample = best.sample;
         var mos;
@@ -47,10 +63,11 @@ function evaluatePixel(samples, scenes) {
         } else {
             mos = best.mos * 10000;
         }
-        return [bestSample.B04 * 10000,
+        return {default: [
+                bestSample.B04 * 10000,
                 bestSample.B03 * 10000,
                 bestSample.B02 * 10000
-            ];
+            ]};
     }
 }
 
