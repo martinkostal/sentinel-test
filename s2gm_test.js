@@ -22,14 +22,17 @@ function setup(ds) {
 //    setOutputComponentCount(3);
 //}
 
-/*
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
     var allowedDates = [
-          "2018-02-21",
-          "2018-02-13",
-          "2018-02-06",
-          "2018-02-03"];
+          "2018-06-30",
+          "2018-06-10",
+          "2018-05-31",
+          "2018-05-26",
+          "2018-05-21",
+          "2018-05-13",
+          "2018-05-06",
+          "2018-05-03"];
     // format scene date timestamp to match allowed dates 
     var sceneDateStr = dateformat(scene.date);
     if (allowedDates.indexOf(sceneDateStr)!= -1) return true;
@@ -47,7 +50,6 @@ function dateformat(d){
   var isodate = yyyy+'-'+mm+'-'+dd;
   return isodate;
 }
-*/
 
 function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
