@@ -16,18 +16,13 @@ function setup(ds) {
     }
 }
 
-function filterScenes(scenes, inputMetadata) {
-    return scenes.filter(function(scene) {
-        return scene.date.getTime() >= (inputMetadata.to.getTime() - (numberOfMonthsToUse * 31 * 24 * 3600 * 1000));
-    });
-}
 //function setup(ds) {
 //    setInputComponents([ds.B01, ds.B02, ds.B03, ds.B04, ds.B05, ds.B06, ds.B07, ds.B08, ds.B8A, ds.B11, ds.B12,
 //            ds.AOT, ds.CLD, ds.SNW, ds.SCL, ds.viewZenithMean, ds.viewAzimuthMean, ds.sunZenithAngles, ds.sunAzimuthAngles]);
 //    setOutputComponentCount(3);
 //}
 
-/*
+
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
     var allowedDates = [
@@ -56,7 +51,7 @@ function dateformat(d){
   var isodate = yyyy+'-'+mm+'-'+dd;
   return isodate;
 }
-*/
+
 
 function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
