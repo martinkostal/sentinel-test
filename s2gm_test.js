@@ -64,9 +64,9 @@ function evaluatePixel(samples, scenes) {
             mos = best.mos * 10000;
         }
         return {default: [
-                255,
-                255,
-                255
+                bestSample.B04 * 2.5,
+                bestSample.B03 * 2.5,
+                bestSample.B02 * 2.5
             ]};
     }
 }
