@@ -53,7 +53,7 @@ function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
     var best = selectRepresentativeSample(filteredSamples);
     if (best === undefined) {
-        return {default: [0, 0, 0]};
+        return {default: [150, 150, 150]};
     } else {
         var bestSample = best.sample;
         var mos;
@@ -64,9 +64,9 @@ function evaluatePixel(samples, scenes) {
             mos = best.mos * 10000;
         }
         return {default: [
-                bestSample.B04 * 10000,
-                bestSample.B03 * 10000,
-                bestSample.B02 * 10000
+                255,
+                255,
+                255
             ]};
     }
 }
