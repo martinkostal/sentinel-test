@@ -26,9 +26,6 @@ function setup(ds) {
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
     var allowedDates = [
-          "2018-03-30",
-          "2018-03-10",
-          "2018-03-31",
           "2018-02-26",
           "2018-02-21",
           "2018-02-13",
