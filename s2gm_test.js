@@ -20,6 +20,7 @@ function setup(ds) {
 //    setOutputComponentCount(3);
 //}
 
+/*
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
     var allowedDates = [
@@ -48,6 +49,7 @@ function dateformat(d){
   var isodate = yyyy+'-'+mm+'-'+dd;
   return isodate;
 }
+*/
 
 function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
