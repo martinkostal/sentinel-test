@@ -26,14 +26,14 @@ function setup(ds) {
 function filterScenes (scenes, inputMetadata) {  
   return scenes.filter(function (scene) {
     var allowedDates = [
-          "2018-06-30",
-          "2018-06-10",
-          "2018-05-31",
-          "2018-05-26",
-          "2018-05-21",
-          "2018-05-13",
-          "2018-05-06",
-          "2018-05-03"];
+          "2018-03-30",
+          "2018-03-10",
+          "2018-03-31",
+          "2018-02-26",
+          "2018-02-21",
+          "2018-02-13",
+          "2018-02-06",
+          "2018-02-03"];
     // format scene date timestamp to match allowed dates 
     var sceneDateStr = dateformat(scene.date);
     if (allowedDates.indexOf(sceneDateStr)!= -1) return true;
